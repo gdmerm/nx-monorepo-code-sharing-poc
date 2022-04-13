@@ -17,6 +17,9 @@
     "paths": {
       "@betsson-sportsbook-monorepo/sb-sportsbook-react-native": [
         "libs/sb-sportsbook-react-native/src/index.ts"
+      ],
+      "@betsson-sportsbook-monorepo/sb-ui-components": [
+        "libs/sb-ui-components/src/index.ts"
       ]
     }
   },

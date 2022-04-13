@@ -2,8 +2,7 @@
   "version": 2,
   "projects": {
     "sb-ios-swift": "apps/sb-ios-swift",
-    "sb-react-native": "apps/sb-react-native",
     "sb-react-web": "apps/sb-react-web",
-    "sb-sportsbook-react-native": "libs/sb-sportsbook-react-native"
+    "sb-ui-components": "libs/sb-ui-components"
   }
 }

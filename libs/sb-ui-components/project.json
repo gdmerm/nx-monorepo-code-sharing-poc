@@ -1,0 +1,23 @@
+{
+  "root": "libs/sb-ui-components",
+  "sourceRoot": "libs/sb-ui-components/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/sb-ui-components/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sb-ui-components"],
+      "options": {
+        "jestConfig": "libs/sb-ui-components/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
