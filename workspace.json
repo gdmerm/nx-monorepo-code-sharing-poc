@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "sb-react-web": "apps/sb-react-web",
+    "sb-react-web-e2e": "apps/sb-react-web-e2e"
+  }
+}

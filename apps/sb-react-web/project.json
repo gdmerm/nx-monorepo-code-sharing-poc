@@ -1,0 +1,73 @@
+{
+  "root": "apps/sb-react-web",
+  "sourceRoot": "apps/sb-react-web/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/sb-react-web",
+        "index": "apps/sb-react-web/src/index.html",
+        "baseHref": "/",
+        "main": "apps/sb-react-web/src/main.tsx",
+        "polyfills": "apps/sb-react-web/src/polyfills.ts",
+        "tsConfig": "apps/sb-react-web/tsconfig.app.json",
+        "assets": [
+          "apps/sb-react-web/src/favicon.ico",
+          "apps/sb-react-web/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/sb-react-web/src/environments/environment.ts",
+              "with": "apps/sb-react-web/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "sb-react-web:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "sb-react-web:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/sb-react-web/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/sb-react-web"],
+      "options": {
+        "jestConfig": "apps/sb-react-web/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
