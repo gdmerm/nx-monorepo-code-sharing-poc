@@ -1,0 +1,25 @@
+{
+  "root": "libs/sb-sportsbook-react-native",
+  "sourceRoot": "libs/sb-sportsbook-react-native/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/sb-sportsbook-react-native/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sb-sportsbook-react-native"],
+      "options": {
+        "jestConfig": "libs/sb-sportsbook-react-native/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

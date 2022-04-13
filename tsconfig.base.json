@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@betsson-sportsbook-monorepo/sb-sportsbook-react-native": [
+        "libs/sb-sportsbook-react-native/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
