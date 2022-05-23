@@ -44,7 +44,8 @@
       "executor": "@nrwl/web:dev-server",
       "options": {
         "buildTarget": "sb-react-web:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/sb-react-web/proxy.conf.json"
       },
       "configurations": {
         "production": {

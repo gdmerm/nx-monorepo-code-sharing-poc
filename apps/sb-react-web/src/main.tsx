@@ -3,9 +3,36 @@ import * as ReactDOM from 'react-dom';
 
 import App from './app/app';
 
-ReactDOM.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById('root')
-);
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import { rootEpic, rootReducer } from './app/store/root';
+import { createEpicMiddleware } from 'redux-observable';
+import { AppRegistry } from 'react-native';
+
+const epicMiddleware = createEpicMiddleware()
+
+const store = configureStore({
+  reducer: rootReducer,
+  // Additional middleware can be passed to this array
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  devTools: process.env['NODE_ENV'] !== 'production',
+  middleware: (defaultMiddleware) => ([...defaultMiddleware(), epicMiddleware]),
+  // Optional Redux store enhancers
+  enhancers: [],
+});
+
+epicMiddleware.run(rootEpic);
+
+const AppWithRedux = () => (
+  <Provider store={store}>
+    <StrictMode>
+      <App />
+    </StrictMode>
+  </Provider>
+)
+
+AppRegistry.registerComponent('main', () => AppWithRedux);
+AppRegistry.runApplication('main', {
+  rootTag: document.getElementById('root'),
+});
+

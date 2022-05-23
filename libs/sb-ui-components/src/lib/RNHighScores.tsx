@@ -1,42 +1,30 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
-
-const CATEGORIES_API_LOCATOR = '/api/sb/v1/widgets/categories/v1?includeBadge=false';
+import { useDispatch, useSelector } from 'react-redux';
+import {fetchCategoriesStart} from '@betsson-sportsbook-monorepo/data-access-categories'
 
 export function RNHighScores({ scores }: {scores: any}) {
-  const [categs, setCategories] = useState([])
-
+  const dispatch = useDispatch()
   useEffect(() => {
-    const url = `http://localhost:3001${CATEGORIES_API_LOCATOR}`
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setCategories(data.data.items))
-  })
+    dispatch(fetchCategoriesStart())
+  }, [])
 
-  const contents = scores.map((score: {name: string, value: string}) => (
-    <Text key={score.name}>
-      {score.name}:{score.value}
-      {'\n'}
-    </Text>
-  ));
-
-  const categories = categs.map((categ: {slug: string, label: string}) => (
-    <TouchableOpacity key={categ.slug}><Text>{categ.label}</Text></TouchableOpacity>
+  const categories = useSelector((state: Record<'categories', Array<any>>) => state.categories)
+  const content = categories.map((categ: {slug: string, label: string, key: string}) => (
+    <View key={categ.key}>
+      <TouchableOpacity key={categ.slug}><Text>{categ.label}</Text></TouchableOpacity>
+    </View>
   ))
 
   return (
-    <View style={styles.container}>
-      {/*<Text style={styles.highScoresTitle}>*/}
-      {/*  2048 High Scores!*/}
-      {/*</Text>*/}
-      {/*<Text style={styles.scores}>{contents}</Text>*/}
-      <View>{categories}</View>
-    </View>
+      <View style={styles.container}>
+        {content}
+      </View>
   );
 }
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import NxWelcome from './nx-welcome';
+import { RNHighScores } from '@betsson-sportsbook-monorepo/sb-ui-components';
 
 const StyledApp = styled.div`
   // Your style here
@@ -8,6 +9,7 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
+      <RNHighScores scores={[]} />
       <NxWelcome title="sb-react-web" />
     </StyledApp>
   );

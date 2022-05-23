@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "data-access-categories": "libs/data-access-categories",
     "sb-ios-swift": "apps/sb-ios-swift",
     "sb-react-web": "apps/sb-react-web",
     "sb-ui-components": "libs/sb-ui-components"

@@ -1,0 +1,32 @@
+{
+  "root": "libs/data-access-categories",
+  "sourceRoot": "libs/data-access-categories/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/data-access-categories",
+        "main": "libs/data-access-categories/src/index.ts",
+        "tsConfig": "libs/data-access-categories/tsconfig.lib.json",
+        "assets": ["libs/data-access-categories/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/data-access-categories/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/data-access-categories"],
+      "options": {
+        "jestConfig": "libs/data-access-categories/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
