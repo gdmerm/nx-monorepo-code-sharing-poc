@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity, ScrollView
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchCategoriesStart} from '@betsson-sportsbook-monorepo/data-access-categories'
@@ -16,15 +16,15 @@ export function RNHighScores({ scores }: {scores: any}) {
 
   const categories = useSelector((state: Record<'categories', Array<any>>) => state.categories)
   const content = categories.map((categ: {slug: string, label: string, key: string}) => (
-    <View key={categ.key}>
       <TouchableOpacity key={categ.slug}><Text>{categ.label}</Text></TouchableOpacity>
-    </View>
   ))
 
   return (
-      <View style={styles.container}>
-        {content}
-      </View>
+    <View style={styles.container}>
+      <Text style={styles.highScoresTitle}>
+        2048 High Scores!
+      </Text>
+    </View>
   );
 }
 

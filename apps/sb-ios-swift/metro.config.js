@@ -22,6 +22,7 @@ module.exports = (async () => {
         sourceExts: [...sourceExts, 'svg'],
         resolverMainFields: ['sbmodern', 'browser', 'main'],
         blacklistRE: exclusionList([/\.\/dist\/.*/]),
+        sourceExts: ['jsx', 'js', 'tsx', 'ts']
       },
     },
     {
@@ -29,7 +30,7 @@ module.exports = (async () => {
       // Useful if you have issues resolving modules
       debug: false,
       // all the file extensions used for imports other than 'ts', 'tsx', 'js', 'jsx'
-      extensions: [],
+      extensions: ['ts', 'tsx', 'js', 'jsx'],
     }
   );
 })();

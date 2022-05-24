@@ -15,6 +15,12 @@
         "command": "nx start sb-ios-swift"
       }
     },
+    "xcode": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "open ./apps/sb-ios-swift/ios/ShareTextOrImage.xcworkspace"
+      }
+    },
     "run-ios": {
       "executor": "@nrwl/react-native:run-ios",
       "options": {}

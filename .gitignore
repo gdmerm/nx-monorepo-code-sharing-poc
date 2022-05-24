@@ -92,3 +92,4 @@ buck-out/
 /
 apps/sb-react-native-e2e/artifacts
 apps/sb-ios-swift-e2e/artifacts
+apps/test-rn-e2e/artifacts

@@ -1,4 +1,4 @@
-import { catchError, mergeMap, Observable, of, switchMap } from 'rxjs';
+import { catchError, mergeMap, Observable, of, switchMap, tap } from 'rxjs';
 import { Action } from 'redux';
 import { ofType } from 'redux-observable';
 import { fetchCategoriesDone, fetchCategoriesStart } from './categories-slice';
@@ -16,7 +16,7 @@ headers
 
 export const loadCategoriesEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(fetchCategoriesStart),
-  switchMap(() => Axios.get(`${CATEGORIES_API_LOCATOR}`, { headers: Object.fromEntries(headers) }).pipe(
+  switchMap(() => Axios.get(`http://localhost:3001${CATEGORIES_API_LOCATOR}`, { headers: Object.fromEntries(headers) }).pipe(
     mergeMap((res: AxiosResponse<any>) => ([fetchCategoriesDone(res.data.data.items)])),
     catchError(() => of({ type: '@categories/fetch/http-error' }))
   ))
