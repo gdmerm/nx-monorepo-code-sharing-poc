@@ -15,8 +15,10 @@ export function RNHighScores({ scores }) {
     const url = `http://localhost:3001${CATEGORIES_API_LOCATOR}`
     fetch(url)
       .then(response => response.json())
-      .then(data => setCategories(data.data.items))
-  })
+      .then(data => {
+        setCategories(data.data.items)
+      })
+  }, [])
 
   const contents = scores.map((score) => (
     <Text key={score.name}>
