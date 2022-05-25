@@ -8,7 +8,7 @@ import {
 
 const CATEGORIES_API_LOCATOR = '/api/sb/v1/widgets/categories/v1?includeBadge=false';
 
-export function RNHighScores({ scores }) {
+export function RNHighScores({ scores = [] }) {
   const [categs, setCategories] = useState([])
 
   useEffect(() => {

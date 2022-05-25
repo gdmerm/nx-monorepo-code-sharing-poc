@@ -1,11 +1,11 @@
-import App from './app/app';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { rootEpic, rootReducer } from './app/store/root';
 import { createEpicMiddleware } from 'redux-observable';
-import { AppRegistry } from 'react-native';
+import { AppRegistry, View, Text, TouchableOpacity } from 'react-native';
+import { RNHighScores } from '@betsson-sportsbook-monorepo/sb-ui-components';
 
 const epicMiddleware = createEpicMiddleware()
 
@@ -21,15 +21,12 @@ const store = configureStore({
 
 epicMiddleware.run(rootEpic);
 
-const AppWithRedux = () => (
-  <Provider store={store}>
-      <App />
-  </Provider>
-)
+function ReduxComponent() {
+ return (
+   <Provider store={store}>
+     <RNHighScores scores={[]}></RNHighScores>
+   </Provider>
+ )
+}
 
-AppRegistry.registerComponent('RNHighScores', () => AppWithRedux);
-// AppRegistry.runApplication('RNHighScores', {
-//   rootTag: document.getElementById('root'),
-// });
-
-
+AppRegistry.registerComponent('RNHighScores', () => ReduxComponent);

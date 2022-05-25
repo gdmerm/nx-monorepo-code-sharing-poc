@@ -5,7 +5,6 @@ const categoriesSlice = createSlice({
   initialState: [],
   reducers: {
     fetchCategoriesDone(state: Array<any>, action) {
-      console.log('>>>>>>>>> updating store')
       return action.payload
     }
   }

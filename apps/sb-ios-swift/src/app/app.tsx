@@ -6,7 +6,7 @@ import { View } from 'react-native';
 export function App() {
   return (
     <View>
-      <RNHighScores scores={[]} />
+      <RNHighScores />
     </View>
   );
 }
