@@ -1,5 +1,4 @@
 {
-  "root": "apps/sb-react-web",
   "sourceRoot": "apps/sb-react-web/src",
   "projectType": "application",
   "targets": {
@@ -37,6 +36,12 @@
           "namedChunks": false,
           "extractLicenses": true,
           "vendorChunk": false
+        },
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         }
       }
     },
@@ -51,8 +56,12 @@
         "production": {
           "buildTarget": "sb-react-web:build:production",
           "hmr": false
+        },
+        "development": {
+          "buildTarget": "sb-react-web:build:development"
         }
-      }
+      },
+      "defaultConfiguration": "development"
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
@@ -65,7 +74,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/sb-react-web"],
       "options": {
-        "jestConfig": "apps/sb-react-web/jest.config.js",
+        "jestConfig": "apps/sb-react-web/jest.config.ts",
         "passWithNoTests": true
       }
     }

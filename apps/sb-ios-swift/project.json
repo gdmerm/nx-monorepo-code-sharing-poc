@@ -1,5 +1,4 @@
 {
-  "root": "apps/sb-ios-swift",
   "sourceRoot": "apps/sb-ios-swift/src",
   "projectType": "application",
   "targets": {
@@ -29,7 +28,7 @@
       "executor": "@nrwl/react-native:bundle",
       "outputs": ["apps/sb-ios-swift/build"],
       "options": {
-        "entryFile": "apps/sb-ios-swift/src/main.tsx",
+        "entryFile": "src/main.tsx",
         "platform": "ios",
         "bundleOutput": "dist/apps/sb-ios-swift/ios/main.jsbundle"
       }
@@ -49,7 +48,7 @@
     "bundle-android": {
       "executor": "@nrwl/react-native:bundle",
       "options": {
-        "entryFile": "apps/sb-ios-swift/src/main.tsx",
+        "entryFile": "src/main.tsx",
         "platform": "android",
         "bundleOutput": "dist/apps/sb-ios-swift/android/main.jsbundle"
       }
@@ -73,7 +72,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/sb-ios-swift"],
       "options": {
-        "jestConfig": "apps/sb-ios-swift/jest.config.js",
+        "jestConfig": "apps/sb-ios-swift/jest.config.ts",
         "passWithNoTests": true
       }
     }

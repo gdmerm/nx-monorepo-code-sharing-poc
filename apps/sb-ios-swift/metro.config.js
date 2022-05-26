@@ -22,12 +22,14 @@ module.exports = (async () => {
         sourceExts: [...sourceExts, 'svg'],
         resolverMainFields: ['sbmodern', 'browser', 'main'],
         blacklistRE: exclusionList([/\.\/dist\/.*/]),
-        sourceExts: ['jsx', 'js', 'tsx', 'ts']
+        sourceExts: ['jsx', 'js', 'tsx', 'ts'],
       },
     },
     {
       // Change this to true to see debugging info.
       // Useful if you have issues resolving modules
+      projectRoot: __dirname,
+      watchFolders: [],
       debug: false,
       // all the file extensions used for imports other than 'ts', 'tsx', 'js', 'jsx'
       extensions: ['ts', 'tsx', 'js', 'jsx'],

@@ -1,5 +1,4 @@
 {
-  "root": "libs/data-access-categories",
   "sourceRoot": "libs/data-access-categories/src",
   "targets": {
     "build": {
@@ -23,7 +22,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/data-access-categories"],
       "options": {
-        "jestConfig": "libs/data-access-categories/jest.config.js",
+        "jestConfig": "libs/data-access-categories/jest.config.ts",
         "passWithNoTests": true
       }
     }

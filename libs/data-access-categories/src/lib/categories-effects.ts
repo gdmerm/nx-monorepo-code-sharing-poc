@@ -15,11 +15,12 @@ const headers = {
   'x-obg-country-code': 'GR'
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 let API_URL = process.env['NX_API_URL'] || Config['API_URL']
 if (!API_URL) {
   API_URL = ''
 }
-console.log('>>>>>>>>>>>>>>>> API_URL:', API_URL)
 
 export const loadCategoriesEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(fetchCategoriesStart),

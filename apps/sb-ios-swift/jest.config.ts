@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'sb-ios-swift',
   preset: 'react-native',
   testRunner: 'jest-jasmine2',

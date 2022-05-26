@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'data-access-categories',
   preset: '../../jest.preset.js',
   globals: {

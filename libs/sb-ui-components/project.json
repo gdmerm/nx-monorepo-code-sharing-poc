@@ -1,5 +1,4 @@
 {
-  "root": "libs/sb-ui-components",
   "sourceRoot": "libs/sb-ui-components/src",
   "projectType": "library",
   "tags": [],
@@ -15,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/sb-ui-components"],
       "options": {
-        "jestConfig": "libs/sb-ui-components/jest.config.js",
+        "jestConfig": "libs/sb-ui-components/jest.config.ts",
         "passWithNoTests": true
       }
     }
