@@ -1,0 +1,92 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/sb-angular-web/src",
+  "prefix": "betsson-sportsbook-monorepo",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/sb-angular-web",
+        "index": "apps/sb-angular-web/src/index.html",
+        "main": "apps/sb-angular-web/src/main.ts",
+        "polyfills": "apps/sb-angular-web/src/polyfills.ts",
+        "tsConfig": "apps/sb-angular-web/tsconfig.app.json",
+        "assets": [
+          "apps/sb-angular-web/src/favicon.ico",
+          "apps/sb-angular-web/src/assets"
+        ],
+        "styles": ["apps/sb-angular-web/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/sb-angular-web/src/environments/environment.ts",
+              "with": "apps/sb-angular-web/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "sb-angular-web:build:production"
+        },
+        "development": {
+          "browserTarget": "sb-angular-web:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "sb-angular-web:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/sb-angular-web/**/*.ts",
+          "apps/sb-angular-web/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/sb-angular-web"],
+      "options": {
+        "jestConfig": "apps/sb-angular-web/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
