@@ -180,6 +180,11 @@
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.16.7.tgz#aa3a8ab4c3cceff8e65eb9e73d87dc4ff320b2f5"
   integrity sha512-Qg3Nk7ZxpgMrsox6HreY1ZNKdBq7K72tDSliA6dCl5f007jR4ne8iD5UzuNnCJH2xBf2BEEVGr+/OL6Gdp7RxA==
 
+"@babel/helper-plugin-utils@^7.17.12":
+  version "7.17.12"
+  resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.17.12.tgz#86c2347da5acbf5583ba0a10aed4c9bf9da9cf96"
+  integrity sha512-JDkf04mqtN3y4iAbO1hv9U2ARpPyPL1zqyWs/2WG1pgSq9llHFjStX5jdxb84himgJm+8Ng+x0oiWF/nw/XQKA==
+
 "@babel/helper-remap-async-to-generator@^7.16.8":
   version "7.16.8"
   resolved "https://registry.yarnpkg.com/@babel/helper-remap-async-to-generator/-/helper-remap-async-to-generator-7.16.8.tgz#29ffaade68a367e2ed09c90901986918d25e57e3"
@@ -491,6 +496,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.16.7"
 
+"@babel/plugin-syntax-flow@^7.17.12":
+  version "7.17.12"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.17.12.tgz#23d852902acd19f42923fca9d0f196984d124e73"
+  integrity sha512-B8QIgBvkIG6G2jgsOHQUist7Sm0EBLDCx8sen072IwqNuzMegZNXrYnSv77cYzA8mLDZAfQYqsLIhimiP1s2HQ==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.17.12"
+
 "@babel/plugin-syntax-import-meta@^7.8.3":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-import-meta/-/plugin-syntax-import-meta-7.10.4.tgz#ee601348c370fa334d2207be158777496521fd51"
@@ -663,6 +675,14 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.16.7"
     "@babel/plugin-syntax-flow" "^7.16.7"
+
+"@babel/plugin-transform-flow-strip-types@^7.17.12":
+  version "7.17.12"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.17.12.tgz#5e070f99a4152194bd9275de140e83a92966cab3"
+  integrity sha512-g8cSNt+cHCpG/uunPQELdq/TeV3eg1OLJYwxypwHtAWo9+nErH3lQx9CSO2uI9lF74A0mR0t4KoMjs1snSgnTw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.17.12"
+    "@babel/plugin-syntax-flow" "^7.17.12"
 
 "@babel/plugin-transform-for-of@^7.0.0", "@babel/plugin-transform-for-of@^7.16.7":
   version "7.16.7"
@@ -1003,6 +1023,15 @@
     "@babel/helper-plugin-utils" "^7.16.7"
     "@babel/helper-validator-option" "^7.16.7"
     "@babel/plugin-transform-flow-strip-types" "^7.16.7"
+
+"@babel/preset-flow@^7.17.12":
+  version "7.17.12"
+  resolved "https://registry.yarnpkg.com/@babel/preset-flow/-/preset-flow-7.17.12.tgz#664a5df59190260939eee862800a255bef3bd66f"
+  integrity sha512-7QDz7k4uiaBdu7N89VKjUn807pJRXmdirQu0KyR9LXnQrr5Jt41eIMKTS7ljej+H29erwmMrwq9Io9mJHLI3Lw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.17.12"
+    "@babel/helper-validator-option" "^7.16.7"
+    "@babel/plugin-transform-flow-strip-types" "^7.17.12"
 
 "@babel/preset-modules@^0.1.5":
   version "0.1.5"
@@ -2777,15 +2806,15 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.23.tgz#3b41a6e643589ac6442bdbd7a4a3ded62f33f7da"
   integrity sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw==
 
-"@types/node@16.11.7":
-  version "16.11.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.7.tgz#36820945061326978c42a01e56b61cd223dfdc42"
-  integrity sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw==
-
 "@types/node@^14.14.31":
   version "14.18.12"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.12.tgz#0d4557fd3b94497d793efd4e7d92df2f83b4ef24"
   integrity sha512-q4jlIR71hUpWTnGhXWcakgkZeHa3CCjcQcnuzU8M891BAWA2jHiziiWEPEkdS5pFsz7H9HJiy8BrK7tBRNrY7A==
+
+"@types/node@^17.0.35":
+  version "17.0.35"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.35.tgz#635b7586086d51fb40de0a2ec9d1014a5283ba4a"
+  integrity sha512-vu1SrqBjbbZ3J6vwY17jBs8Sr/BKA+/a/WtjRG+whKg1iuLFOosq872EXS0eXWILdO36DHQQeku/ZcL6hz2fpg==
 
 "@types/npmlog@^4.1.2":
   version "4.1.4"
