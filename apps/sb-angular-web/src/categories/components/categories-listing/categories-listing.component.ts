@@ -1,7 +1,7 @@
-import {Component, OnChanges, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
-import {Observable, Subscription} from "rxjs";
-import { fetchCategoriesStart } from '@betsson-sportsbook-monorepo/data-access-categories';
+import {Observable} from "rxjs";
+import { fetchCategoriesStart, selectCategories } from '@betsson-sportsbook-monorepo/data-access-categories';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -19,18 +19,13 @@ import { fetchCategoriesStart } from '@betsson-sportsbook-monorepo/data-access-c
 })
 export class CategoriesListingComponent implements OnInit {
   categories$: Observable<Array<{label: string, slug: string}>>;
-  private subscriptions: Subscription[] = []
   constructor(
     private store: Store,
   ) {
-    this.categories$ = this.store.select((state: any) => state.categories)
+    this.categories$ = this.store.select(selectCategories)
   }
 
   ngOnInit(): void {
     this.store.dispatch(fetchCategoriesStart())
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach(sub => sub.unsubscribe())
   }
 }

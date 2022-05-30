@@ -10,6 +10,7 @@ const categoriesSlice = createSlice({
   }
 })
 
+export const selectCategories = (state: any) => state.categories;
 export const { fetchCategoriesDone } = categoriesSlice.actions;
 export const fetchCategoriesStart = createAction(`${categoriesSlice.name}/fetchCategoriesStart`);
 export const { name } = categoriesSlice;
