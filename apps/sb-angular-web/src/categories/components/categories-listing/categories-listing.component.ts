@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnChanges, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {Observable, Subscription} from "rxjs";
 import { fetchCategoriesStart } from '@betsson-sportsbook-monorepo/data-access-categories';
@@ -17,26 +17,17 @@ import { fetchCategoriesStart } from '@betsson-sportsbook-monorepo/data-access-c
   `,
   styleUrls: ['./categories-listing.component.css']
 })
-export class CategoriesListingComponent implements OnInit, OnChanges {
+export class CategoriesListingComponent implements OnInit {
   categories$: Observable<Array<{label: string, slug: string}>>;
   private subscriptions: Subscription[] = []
   constructor(
     private store: Store,
   ) {
-    this.categories$ = this.store.select((state: any) => state?.categories)
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('<app-categories-listing>: onChanges()')
+    this.categories$ = this.store.select((state: any) => state.categories)
   }
 
   ngOnInit(): void {
-    console.log('<app-categories-listing>: onInit()')
-    this.subscriptions.push(this.categories$.subscribe(categs => {
-      if (categs.length === 0) {
-        this.store.dispatch(fetchCategoriesStart())
-      }
-    }))
+    this.store.dispatch(fetchCategoriesStart())
   }
 
   ngOnDestroy() {
