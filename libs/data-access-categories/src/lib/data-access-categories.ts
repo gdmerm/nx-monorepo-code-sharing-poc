@@ -3,5 +3,5 @@ export function dataAccessCategories(): string {
 }
 
 
-export {default as categories, fetchCategoriesDone, fetchCategoriesStart} from './categories-slice'
+export {default as categories, fetchCategoriesDone, fetchCategoriesStart, name } from './categories-slice'
 export {loadCategoriesEpic} from './categories-effects'

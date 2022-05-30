@@ -22,7 +22,9 @@ if (!API_URL) {
   API_URL = ''
 }
 
-export const loadCategoriesEpic = (action$: Observable<Action>) => action$.pipe(
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export const loadCategoriesEpic = (actions$: Observable<Action> = this.actions$) => actions$.pipe(
   ofType(fetchCategoriesStart),
   switchMap(() => Axios.get(`${API_URL}${CATEGORIES_API_LOCATOR}`, { headers }).pipe(
     mergeMap((res: AxiosResponse<any>) => ([fetchCategoriesDone(res.data.data.items)])),

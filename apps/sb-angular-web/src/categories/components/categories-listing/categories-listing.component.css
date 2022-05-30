@@ -1,0 +1,29 @@
+.categories-container {
+  height: 800px;
+  overflow-y: scroll;
+}
+
+.categories-container ul li {
+  display: flex;
+  width: 100%;
+  background-color: #f7f7f7;
+  padding: 8px 20px;
+  box-sizing: border-box;
+  margin: 2px 0px;
+}
+
+.categories-container ul li:hover {
+  background-color: #999999;
+  cursor: pointer;
+}
+
+.categories-container ul li:hover a {
+  color: #ffffff;
+}
+
+.categories-container ul li a {
+  color: #333333;
+  text-decoration: none;
+  font-family: "Open Sans", Arial, "SansSerif";
+  font-size:14px;
+}

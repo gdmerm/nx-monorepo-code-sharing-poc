@@ -17,7 +17,8 @@
           "apps/sb-angular-web/src/assets"
         ],
         "styles": ["apps/sb-angular-web/src/styles.css"],
-        "scripts": []
+        "scripts": [],
+        "webpackConfig": "apps/sb-angular-web/webpack.config.js"
       },
       "configurations": {
         "production": {
