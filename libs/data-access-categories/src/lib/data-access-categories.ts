@@ -5,3 +5,4 @@ export function dataAccessCategories(): string {
 
 export {default as categories, fetchCategoriesDone, fetchCategoriesStart, name } from './categories-slice'
 export {loadCategoriesEpic} from './categories-effects'
+export {default as createEffect} from './angular/createEffect'

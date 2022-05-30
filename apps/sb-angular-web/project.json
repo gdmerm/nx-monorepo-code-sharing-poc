@@ -4,7 +4,7 @@
   "prefix": "betsson-sportsbook-monorepo",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/sb-angular-web",
@@ -16,9 +16,13 @@
           "apps/sb-angular-web/src/favicon.ico",
           "apps/sb-angular-web/src/assets"
         ],
-        "styles": ["apps/sb-angular-web/src/styles.css"],
+        "styles": [
+          "apps/sb-angular-web/src/styles.css"
+        ],
         "scripts": [],
-        "webpackConfig": "apps/sb-angular-web/webpack.config.js"
+        "customWebpackConfig": {
+          "path": "apps/sb-angular-web/webpack.config.js"
+        }
       },
       "configurations": {
         "production": {
@@ -54,7 +58,10 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nrwl/angular:webpack-server",
+      "options": {
+        "proxyConfig": "apps/sb-angular-web/proxy.conf.json"
+      },
       "configurations": {
         "production": {
           "browserTarget": "sb-angular-web:build:production"
@@ -66,7 +73,7 @@
       "defaultConfiguration": "development"
     },
     "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "executor": "ngx-build-plus:extract-i18n",
       "options": {
         "browserTarget": "sb-angular-web:build"
       }
@@ -81,8 +88,10 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/sb-angular-web"],
+      "executor": "ngx-build-plus:karma",
+      "outputs": [
+        "coverage/apps/sb-angular-web"
+      ],
       "options": {
         "jestConfig": "apps/sb-angular-web/jest.config.ts",
         "passWithNoTests": true

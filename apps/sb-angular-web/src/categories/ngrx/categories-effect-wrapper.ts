@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect } from '@ngrx/effects';
-import { loadCategoriesEpic } from '@betsson-sportsbook-monorepo/data-access-categories';
+import {
+  loadCategoriesEpic,
+  createEffect
+} from '@betsson-sportsbook-monorepo/data-access-categories';
+import { Actions, ofType } from '@ngrx/effects';
 
 @Injectable()
 export class CategoriesEffects {
-  loadCategories$ = createEffect(loadCategoriesEpic)
+  loadCategories$ = createEffect(this.actions$, loadCategoriesEpic)
   constructor(private actions$: Actions) {}
 }

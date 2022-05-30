@@ -23,7 +23,7 @@ export class CategoriesListingComponent implements OnInit, OnChanges {
   constructor(
     private store: Store,
   ) {
-    this.categories$ = this.store.select((state: any) => state?.categories?.data)
+    this.categories$ = this.store.select((state: any) => state?.categories)
   }
 
   ngOnChanges(changes: SimpleChanges) {

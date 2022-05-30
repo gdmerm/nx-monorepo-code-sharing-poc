@@ -22,12 +22,12 @@ if (!API_URL) {
   API_URL = ''
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export const loadCategoriesEpic = (actions$: Observable<Action> = this.actions$) => actions$.pipe(
-  ofType(fetchCategoriesStart),
-  switchMap(() => Axios.get(`${API_URL}${CATEGORIES_API_LOCATOR}`, { headers }).pipe(
-    mergeMap((res: AxiosResponse<any>) => ([fetchCategoriesDone(res.data.data.items)])),
-    catchError(() => of({ type: '@categories/fetch/http-error' }))
-  ))
-)
+export const loadCategoriesEpic = (actions$: Observable<Action>) => {
+  return (actions$).pipe(
+    ofType(fetchCategoriesStart),
+    switchMap(() => Axios.get(`${API_URL}${CATEGORIES_API_LOCATOR}`, { headers }).pipe(
+      mergeMap((res: AxiosResponse<any>) => ([fetchCategoriesDone(res.data.data.items)])),
+      catchError(() => of({ type: '@categories/fetch/http-error' }))
+    ))
+  )
+}
