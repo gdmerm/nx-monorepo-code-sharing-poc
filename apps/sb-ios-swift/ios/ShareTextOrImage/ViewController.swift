@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func highScoreButtonTapped(sender : UIButton) {
-        NSLog("Hello")
         //let jsBundleLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")!
         let jsBundleLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")!
         let mockData:NSDictionary = ["categories" : []]
