@@ -5,6 +5,8 @@
  Delete this file and get started with your project!
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
+import { RNHighScores } from '@betsson-sportsbook-monorepo/sb-ui-components';
+
 export function NxWelcome({ title }: { title: string }) {
   return (
     <>
@@ -420,6 +422,10 @@ export function NxWelcome({ title }: { title: string }) {
               <span> Hello there, </span>
               Welcome {title} 👋
             </h1>
+          </div>
+
+          <div id="here" className="rounded">
+            <RNHighScores scores={[]} />
           </div>
 
           <div id="hero" className="rounded">

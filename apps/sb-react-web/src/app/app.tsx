@@ -9,7 +9,6 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
-      <RNHighScores scores={[]} />
       <NxWelcome title="sb-react-web" />
     </StyledApp>
   );
