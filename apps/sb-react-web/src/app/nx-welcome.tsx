@@ -5,7 +5,7 @@
  Delete this file and get started with your project!
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
-import { RNHighScores } from '@betsson-sportsbook-monorepo/sb-ui-components';
+import { CategoriesListing } from '@betsson-sportsbook-monorepo/sb-ui-components';
 
 export function NxWelcome({ title }: { title: string }) {
   return (
@@ -425,7 +425,7 @@ export function NxWelcome({ title }: { title: string }) {
           </div>
 
           <div id="here" className="rounded">
-            <RNHighScores scores={[]} />
+            <CategoriesListing />
           </div>
 
           <div id="hero" className="rounded">

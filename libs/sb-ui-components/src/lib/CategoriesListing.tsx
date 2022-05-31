@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react';
 import {
   Text,
-  View,
   TouchableOpacity, ScrollView
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategoriesStart, selectCategories } from '@betsson-sportsbook-monorepo/data-access-categories';
 
-export function RNHighScores({ scores }: {scores: any}) {
+export function CategoriesListing() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchCategoriesStart())

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import NxWelcome from './nx-welcome';
-import { RNHighScores } from '@betsson-sportsbook-monorepo/sb-ui-components';
 
 const StyledApp = styled.div`
   // Your style here

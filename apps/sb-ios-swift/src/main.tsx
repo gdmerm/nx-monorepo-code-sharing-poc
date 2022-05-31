@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { rootEpic, rootReducer } from './app/store/root';
 import { createEpicMiddleware } from 'redux-observable';
 import { AppRegistry } from 'react-native';
-import { RNHighScores } from '@betsson-sportsbook-monorepo/sb-ui-components';
+import { CategoriesListing } from '@betsson-sportsbook-monorepo/sb-ui-components';
 
 const epicMiddleware = createEpicMiddleware()
 
@@ -24,9 +24,9 @@ epicMiddleware.run(rootEpic);
 function ReduxComponent() {
  return (
    <Provider store={store}>
-     <RNHighScores scores={[]}></RNHighScores>
+     <CategoriesListing></CategoriesListing>
    </Provider>
  )
 }
 
-AppRegistry.registerComponent('RNHighScores', () => ReduxComponent);
+AppRegistry.registerComponent('COM_BETSSON_NET__CategoriesListing', () => ReduxComponent);

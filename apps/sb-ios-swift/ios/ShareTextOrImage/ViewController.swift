@@ -36,16 +36,11 @@ class ViewController: UIViewController {
         NSLog("Hello")
         //let jsBundleLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")!
         let jsBundleLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")!
-        let mockData:NSDictionary = ["scores":
-          [
-              ["name":"Alex", "value":"42"],
-              ["name":"Joel", "value":"10"]
-          ]
-        ]
+        let mockData:NSDictionary = ["categories" : []]
 
         let rootView = RCTRootView(
           bundleURL: jsBundleLocation,
-          moduleName: "RNHighScores",
+          moduleName: "COM_BETSSON_NET__CategoriesListing",
           initialProperties: mockData as [NSObject : AnyObject],
           launchOptions: nil
         )
