@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         let activityViewController = self.share(
             items: [
                 "https://www.betsson.gr",
-                UIImage(imageLiteralResourceName: "testImage"),
+                		
                 URL(string: "https://www.betsafe.com")!
             ],
             ipad: (true, self.view)

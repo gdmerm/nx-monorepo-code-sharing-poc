@@ -14,6 +14,12 @@
         "command": "nx start sb-ios-swift"
       }
     },
+    "pod-install": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "cd apps/sb-ios-swift/ios && pod install & ../../../"
+      }
+    },
     "xcode": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
