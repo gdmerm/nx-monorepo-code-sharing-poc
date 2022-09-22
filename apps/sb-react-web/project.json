@@ -18,7 +18,8 @@
         "tsConfig": "apps/sb-react-web/tsconfig.app.json",
         "assets": [
           "apps/sb-react-web/src/favicon.ico",
-          "apps/sb-react-web/src/assets"
+          "apps/sb-react-web/src/assets",
+          "apps/sb-react-web/src/mockServiceWorker.js"
         ],
         "styles": [],
         "scripts": [],

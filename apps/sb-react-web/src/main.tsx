@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 import { rootEpic, rootReducer } from './app/store/root';
 import { createEpicMiddleware } from 'redux-observable';
 import { AppRegistry } from 'react-native';
+import {worker} from './mocks/browser';
 
+worker.start()
 const epicMiddleware = createEpicMiddleware()
 
 const store = configureStore({
