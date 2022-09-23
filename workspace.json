@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "data-access-categories": "libs/data-access-categories",
+    "data-access-giphy": "libs/data-access-giphy",
     "sb-angular-web": "apps/sb-angular-web",
     "sb-ios-swift": "apps/sb-ios-swift",
     "sb-react-web": "apps/sb-react-web",

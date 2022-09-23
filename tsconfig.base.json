@@ -19,6 +19,9 @@
       "@betsson-sportsbook-monorepo/data-access-categories": [
         "libs/data-access-categories/src/index.ts"
       ],
+      "@betsson-sportsbook-monorepo/data-access-giphy": [
+        "libs/data-access-giphy/src/index.ts"
+      ],
       "@betsson-sportsbook-monorepo/sb-sportsbook-react-native": [
         "libs/sb-sportsbook-react-native/src/index.ts"
       ],

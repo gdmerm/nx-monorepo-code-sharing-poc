@@ -8,7 +8,18 @@ import { createEpicMiddleware } from 'redux-observable';
 import { AppRegistry } from 'react-native';
 import {worker} from './mocks/browser';
 
-worker.start()
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'gify-item': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+        >;
+    }
+  }
+}
+
+// worker.start()
 const epicMiddleware = createEpicMiddleware()
 
 const store = configureStore({
