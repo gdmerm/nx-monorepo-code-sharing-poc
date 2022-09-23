@@ -1,5 +1,5 @@
-import { mergeMap, Observable, switchMap } from 'rxjs';
-import { Action } from 'redux';
+import { debounceTime, distinctUntilChanged, filter, mergeMap, Observable, switchMap } from 'rxjs';
+import { Action, AnyAction } from 'redux';
 import { ofType } from 'redux-observable';
 import { searchGiphiesDone, searchGiphiesStart } from './giphy-slice';
 import { Axios } from 'axios-observable';
@@ -13,7 +13,10 @@ const SEARCH_API_URL = `${API_URL}/search?api_key=${API_KEY}&q=dogs&limit=25&off
 export const searchGiphyEffect = (actions$: Observable<Action>) => {
   return actions$.pipe(
     ofType(searchGiphiesStart),
-    switchMap(() => Axios.get(SEARCH_API_URL).pipe(
+    filter((action: any) => action.payload.length >= 3),
+    distinctUntilChanged(),
+    debounceTime(150),
+    switchMap((action) => Axios.get(`${API_URL}/search?api_key=${API_KEY}&q=${action.payload}&limit=25&offset=0&rating=g&lang=en`).pipe(
       mergeMap((res: AxiosResponse) => ([searchGiphiesDone(res.data.data)]))
     ))
   )

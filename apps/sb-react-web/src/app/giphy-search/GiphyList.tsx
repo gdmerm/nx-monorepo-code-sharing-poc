@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { searchGiphiesStart, selectGiphies } from '@betsson-sportsbook-monorepo/data-access-giphy';
-import { useEffect } from 'react';
+import {  useSelector } from 'react-redux';
+import { selectGiphies } from '@betsson-sportsbook-monorepo/data-access-giphy';
 import '../../../../../libs/sb-ui-components/src/lib/custom-GifyItem.js'
 
 interface GifySearchItem {
@@ -11,11 +10,6 @@ interface GifySearchItem {
 }
 
 export function GiphyList() {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(searchGiphiesStart())
-  }, [])
-
   const giphies = useSelector(selectGiphies)
 
   return (
