@@ -6,6 +6,7 @@ import { rootEpic, rootReducer } from './app/store/root';
 import { createEpicMiddleware } from 'redux-observable';
 import { AppRegistry } from 'react-native';
 import { CategoriesListing } from '@betsson-sportsbook-monorepo/sb-ui-components';
+import { GiphySearch } from './app/giphy-search/GiphySearch';
 
 const epicMiddleware = createEpicMiddleware()
 
@@ -24,7 +25,8 @@ epicMiddleware.run(rootEpic);
 function ReduxComponent() {
  return (
    <Provider store={store}>
-     <CategoriesListing></CategoriesListing>
+     <GiphySearch />
+     {/*<CategoriesListing></CategoriesListing>*/}
    </Provider>
  )
 }
