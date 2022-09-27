@@ -9,28 +9,12 @@ import '../../../../../libs/sb-ui-components/src/lib/custom-HelloWorld.js';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'app-giphy-search',
   template: `
-    <style>
-      .giphy-container {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      picture > img {
-        width: 320px !important;
-        height: 300px !important;
-      }
-
-      input[type="text"] {
-        padding: 10px;
-        margin: 10px 0;
-        width: 100%;
-      }
-    </style>
     <input type="text" (keyup)="handleInput($event)" />
     <section class="giphy-container">
-      <picture *ngFor="let giphy of giphies$ | async; index as i;">
-        <img [src]="giphy.images.fixed_height_small.url" [width]="giphy.images.fixed_height_small.width" [height]="giphy.images.fixed_height_small.height"/>
-      </picture>
+      <giphy-item-wrapper
+        *ngFor="let giphy of giphies$ | async; index as i;"
+        [imageUrl]="giphy.images.fixed_height_small.url">
+      </giphy-item-wrapper>
     </section>
   `
 })

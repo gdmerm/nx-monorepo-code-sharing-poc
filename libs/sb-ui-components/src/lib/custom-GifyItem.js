@@ -6,11 +6,11 @@ class GifyItem extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['data-uri'];
+    return ['imageurl'];
   }
 
   attributeChangedCallback(property, oldValue, newValue) {
-    if (property === 'data-uri') {
+    if (property === 'imageurl') {
       if (oldValue === newValue) return;
       this.render(newValue, this.width, this.height)
     }
@@ -25,9 +25,9 @@ class GifyItem extends HTMLElement {
   }
 
   connectedCallback() {
-    const uri = this.attributes['data-uri'].value
-    const width = this.attributes['data-width'].value
-    const height = this.attributes['data-height'].value
+    const uri = this.getAttribute('imageurl')
+    const width = this.getAttribute('data-width')
+    const height = this.getAttribute('data-height')
     this.width = width
     this.height = height
 

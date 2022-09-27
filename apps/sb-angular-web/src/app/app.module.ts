@@ -31,6 +31,6 @@ import { GiphySearchModule } from '../giphy-search/giphy-search.module';
     GiphySearchModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

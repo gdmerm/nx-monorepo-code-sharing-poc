@@ -32,9 +32,8 @@ export function GiphyList() {
           return (
             <gify-item
               key={gify.id}
-              data-uri={gify.images.fixed_height_small.url}
-              data-width={gify.images.fixed_height_small.width}
-              data-height={gify.images.fixed_height_small.height}
+              // @ts-ignore
+              imageurl={gify.images.fixed_height_small.url}
             />
           )
         })}
