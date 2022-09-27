@@ -9,11 +9,17 @@ import { CategoriesListing } from '@betsson-sportsbook-monorepo/sb-ui-components
 import { GiphyList } from './giphy-search/GiphyList';
 import { useDispatch } from 'react-redux';
 import { searchGiphiesStart } from '@betsson-sportsbook-monorepo/data-access-giphy';
+import { useState } from 'react';
 
 export function NxWelcome({ title }: { title: string }) {
   const dispatch = useDispatch()
-  function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
-    dispatch(searchGiphiesStart(e.target.value))
+  const [isEmpty, setEmpty] = useState(true)
+  function handleInput(e: React.KeyboardEvent<HTMLInputElement>) {
+    if ((e.target as HTMLInputElement).value.length === 0) {
+      return setEmpty(true)
+    }
+    setEmpty(false)
+    dispatch(searchGiphiesStart((e.target as HTMLInputElement).value))
   }
 
   return (
@@ -21,30 +27,16 @@ export function NxWelcome({ title }: { title: string }) {
       <style dangerouslySetInnerHTML={{
         __html:`
             .input-field {
-            font-size: 20px;
-            vertical-align: middle;
-            transition: .5s;
-            border-width: 1px;
-            margin: 5px;
-            border-color: #f1f1f1;
-            width: 50%;
-            margin: 50px 0;
-            padding: 8px 0;
-          }
-
-          .input-field:focus {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-            outline: none;
-          }
-
-          .input-field:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-          }
+              font-size: 20px;
+              padding: 10px;
+              margin: 10px 0;
+              width: 100%;
+            }
         `
       }} />
       <div>
-        <input className='input-field' onChange={handleInput} />
-        <GiphyList />
+        <input className='input-field' onKeyUp={handleInput} />
+        {!isEmpty && <GiphyList />}
       </div>
     </>
   );

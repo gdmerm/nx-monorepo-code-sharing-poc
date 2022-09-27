@@ -1,5 +1,5 @@
 import {  useSelector } from 'react-redux';
-import { selectGiphies } from '@betsson-sportsbook-monorepo/data-access-giphy';
+import { GiphyItem, selectGiphies } from '@betsson-sportsbook-monorepo/data-access-giphy';
 import '../../../../../libs/sb-ui-components/src/lib/custom-GifyItem.js'
 
 interface GifySearchItem {
@@ -28,16 +28,13 @@ export function GiphyList() {
         `
       }} />
       <section className="gify-item_container">
-        {giphies.map((gify: GifySearchItem) => {
+        {giphies.map((gify: GiphyItem) => {
           return (
-            // <div key={gify.id} style={{flex: 1}}>
-            //   <img src={gify.images.original.url} />
-            // </div>
             <gify-item
               key={gify.id}
-              data-uri={gify.images.original.url}
-              data-width={gify.images.original.width}
-              data-height={gify.images.original.height}
+              data-uri={gify.images.fixed_height_small.url}
+              data-width={gify.images.fixed_height_small.width}
+              data-height={gify.images.fixed_height_small.height}
             />
           )
         })}

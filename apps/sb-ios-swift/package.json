@@ -9,6 +9,14 @@
     "react-native": "*",
     "react-native-config": "*",
     "react-native-svg": "*",
-    "@react-native-async-storage/async-storage": "*"
+    "@react-native-async-storage/async-storage": "*",
+    "redux": "*",
+    "redux-observable": "*",
+    "rxjs": "*",
+    "axios-observable": "*",
+    "axios": "*",
+    "@reduxjs/toolkit": "*",
+    "react-redux": "*",
+    "@testing-library/react": "*"
   }
 }

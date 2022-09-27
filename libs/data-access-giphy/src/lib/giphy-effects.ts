@@ -7,14 +7,15 @@ import { AxiosResponse } from 'axios';
 
 const API_URL = 'https://api.giphy.com/v1/gifs'
 const API_KEY = '8Bgk5JnkH20K6BJE4wvH2JwbsrBJL0Pv'
+const LIMIT = 25
 
 export const searchGiphyEffect = (actions$: Observable<Action>) => {
   return actions$.pipe(
     ofType(searchGiphiesStart),
-    filter((action: any) => action.payload.length >= 3),
+    filter((action: any) => action.payload.length > 2),
     distinctUntilChanged(),
     debounceTime(150),
-    switchMap((action) => Axios.get(`${API_URL}/search?api_key=${API_KEY}&q=${action.payload}&limit=25&offset=0&rating=g&lang=en`).pipe(
+    switchMap((action) => Axios.get(`${API_URL}/search?api_key=${API_KEY}&q=${action.payload}&limit=${LIMIT}&offset=0&rating=g&lang=en`).pipe(
       mergeMap((res: AxiosResponse) => ([searchGiphiesDone(res.data.data)]))
     ))
   )
