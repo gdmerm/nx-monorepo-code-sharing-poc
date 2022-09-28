@@ -2,10 +2,11 @@ import { CategoriesListing } from '@betsson-sportsbook-monorepo/sb-ui-components
 import { GiphyList } from './giphy-search/GiphyList';
 import { useDispatch } from 'react-redux';
 import { searchGiphiesStart } from '@betsson-sportsbook-monorepo/data-access-giphy';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function NxWelcome({ title }: { title: string }) {
   const dispatch = useDispatch()
+  useEffect(() => {})
   const [isEmpty, setEmpty] = useState(true)
   function handleInput(e: React.KeyboardEvent<HTMLInputElement>) {
     if ((e.target as HTMLInputElement).value.length === 0) {
