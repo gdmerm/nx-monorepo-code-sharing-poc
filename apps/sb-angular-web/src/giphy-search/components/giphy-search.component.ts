@@ -10,7 +10,7 @@ import '../../../../../libs/sb-ui-components/src/lib/custom-HelloWorld.js';
   selector: 'app-giphy-search',
   template: `
     <input type="text" (keyup)="handleInput($event)" />
-    <section class="giphy-container">
+    <section *ngIf="!isEmpty" class="giphy-container">
       <giphy-item-wrapper
         *ngFor="let giphy of giphies$ | async; index as i;"
         [imageUrl]="giphy.images.fixed_height_small.url">
@@ -20,12 +20,17 @@ import '../../../../../libs/sb-ui-components/src/lib/custom-HelloWorld.js';
 })
 export class GiphySearchComponent {
   giphies$: Observable<Array<GiphyItem>>
-  name = 'Angular';
+  isEmpty = true;
   constructor(private store: Store) {
     this.giphies$ = store.select(selectGiphies)
   }
 
   handleInput(e: Event) {
-    this.store.dispatch(searchGiphiesStart((e.target as HTMLInputElement).value))
+    if ((e.target as HTMLInputElement).value.length === 0) {
+      this.isEmpty = true
+    } else {
+      this.isEmpty = false
+      this.store.dispatch(searchGiphiesStart((e.target as HTMLInputElement).value))
+    }
   }
 }
