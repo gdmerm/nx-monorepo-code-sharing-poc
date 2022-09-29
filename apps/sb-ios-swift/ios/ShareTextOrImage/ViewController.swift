@@ -32,25 +32,7 @@ class ViewController: UIViewController {
         self.present(activityViewController, animated: true)
     }
 
-    @IBAction func highScoreButtonTapped(sender : UIButton) {
-        //let jsBundleLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")!
-        let jsBundleLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")!
-        let mockData:NSDictionary = ["categories" : []]
-
-        let rootView = RCTRootView(
-          bundleURL: jsBundleLocation,
-          moduleName: "COM_BETSSON_NET__CategoriesListing",
-          initialProperties: mockData as [NSObject : AnyObject],
-          launchOptions: nil
-        )
-
-        let vc = UIViewController()
-        vc.view = rootView
-        self.present(vc, animated: true, completion: nil)
-    }
-
     @IBAction func reactSubviewButtonTapped(sender : UIButton) {
-        print("reactSubviewButtonTapped")
         //obtain reference to main.js bundle
         let jsCodeLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")!
 
@@ -62,7 +44,7 @@ class ViewController: UIViewController {
             launchOptions: nil
         )
 
-        //present the view controller
+        //present the view controller which now includes the React Native view
         let vc = UIViewController()
         vc.view = rootView
         self.present(vc, animated: true, completion: nil)
