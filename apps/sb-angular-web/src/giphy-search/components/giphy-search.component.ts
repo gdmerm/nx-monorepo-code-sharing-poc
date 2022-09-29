@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { GiphyItem, searchGiphiesStart, selectGiphies } from '@betsson-sportsbook-monorepo/data-access-giphy';
 import { Observable } from 'rxjs';
 import '../../../../../libs/sb-ui-components/src/lib/custom-GifyItem.js';
-import '../../../../../libs/sb-ui-components/src/lib/custom-HelloWorld.js';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
