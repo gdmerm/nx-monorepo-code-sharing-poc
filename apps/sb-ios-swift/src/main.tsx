@@ -31,4 +31,4 @@ function ReduxComponent() {
  )
 }
 
-AppRegistry.registerComponent('COM_BETSSON_NET__CategoriesListing', () => ReduxComponent);
+AppRegistry.registerComponent('COM_BETSSON_NET__GiphySearch', () => ReduxComponent);
