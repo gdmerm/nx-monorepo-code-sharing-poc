@@ -2,3 +2,4 @@
 export interface SbUiComponentsProps {}
 
 export {CategoriesListing} from './CategoriesListing'
+export {GiphySearch} from './giphy-search/GiphySearch'

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { GiphyItem, searchGiphiesStart, selectGiphies } from '@betsson-sportsbook-monorepo/data-access-giphy';
 import { useState } from 'react';
-import '../../../../libs/sb-ui-components/src/lib/custom-GifyItem.js'
+import '../../../../../libs/sb-ui-components/src/lib/custom-GifyItem.js'
 
 export function GiphySearch() {
   const dispatch = useDispatch()
