@@ -1,13 +1,12 @@
 import {
   debounceTime,
-  distinctUntilChanged,
   distinctUntilKeyChanged,
   filter,
   mergeMap,
   Observable,
   switchMap
 } from 'rxjs';
-import { Action, AnyAction } from 'redux';
+import { Action } from 'redux';
 import { ofType } from 'redux-observable';
 import { searchGiphiesDone, searchGiphiesStart } from './giphy-slice';
 import { Axios } from 'axios-observable';

@@ -7,6 +7,6 @@ import { createPureEffect } from '../../main/createPureEffect';
 
 @Injectable()
 export class CategoriesEffects {
-  loadCategories$ = createPureEffect(this.actions$, loadCategoriesEpic)
+  loadCategories$ = createPureEffect(loadCategoriesEpic, [this.actions$])
   constructor(private actions$: Actions) {}
 }
